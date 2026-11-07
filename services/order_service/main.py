@@ -45,7 +45,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 app = FastAPI(title="Order Service", version="1.0.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=["https://genetic-marketplace-vu9a.vercel.app"],
     allow_credentials=False,  # ← این خط باید False باشد
     allow_methods=["*"],
     allow_headers=["*"],
