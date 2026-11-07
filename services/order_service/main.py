@@ -43,7 +43,13 @@ class OrderResponse(BaseModel):
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="login")
 app = FastAPI(title="Order Service", version="1.0.0")
-app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=False,  # ← این خط باید False باشد
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 def get_db():
     db = SessionLocal()
